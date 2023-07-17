@@ -27,19 +27,42 @@ class Lizard
 
 class Dragon
 {
+    private Bird bird;
+    private Lizard lizard;
     private int age;
+
+    public Dragon(Bird bird, Lizard lizard)
+    {
+        this.bird = bird;
+        this.lizard = lizard;
+    }
+
     public void setAge(int age)
     {
-        // todo
+        this.age = age;
+        bird.age = age;
+        lizard.age = age;
     }
     public String fly()
     {
-        // todo
-        return null;
+       return bird.fly();
     }
     public String crawl()
     {
-        // todo
-        return null;
+        return lizard.crawl();
+    }
+}
+
+class DragonDemo {
+    public static void main(String[] args) {
+        Dragon dragon = new Dragon(new Bird(), new Lizard());
+        dragon.setAge(1);
+        System.out.println(dragon.fly());
+        System.out.println(dragon.crawl());
+
+        dragon.setAge(5);
+        System.out.println(dragon.fly());
+        System.out.println(dragon.crawl());
+
     }
 }
